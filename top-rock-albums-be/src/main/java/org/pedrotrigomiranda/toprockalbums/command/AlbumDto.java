@@ -1,21 +1,18 @@
-package org.pedrotrigomiranda.toprockalbums.persistence.model;
+package org.pedrotrigomiranda.toprockalbums.command;
 
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name="top_albums")
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-public class Album implements Model {
+@Data
+public class AlbumDto {
 
-    @Id
     private Integer id;
 
+    @NotNull
+    @NotBlank
     private String album;
 
     private String artist;
@@ -28,14 +25,6 @@ public class Album implements Model {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
     }
 
     public String getAlbum() {
@@ -52,5 +41,13 @@ public class Album implements Model {
 
     public void setArtist(String artist) {
         this.artist = artist;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 }

@@ -1,6 +1,14 @@
 version: '3.5'
 
 services:
+  backend:
+    container_name: top-rock-abums-be
+    image: top-rock-albums-be
+    build: ./top-rock-albums-be/
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
   postgres:
     build: ./postgres/
     environment:
@@ -12,6 +20,6 @@ services:
     ports:
       - "5432:5432"
     restart: always
-
+    
 volumes:
     postgres:

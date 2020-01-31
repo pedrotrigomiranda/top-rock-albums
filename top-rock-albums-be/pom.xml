@@ -12,6 +12,7 @@
 	<artifactId>top-rock-albums</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>top-rock-albums</name>
+	<packaging>jar</packaging>
 	<description>List of the top Rock albums of all time</description>
 
 	<properties>
