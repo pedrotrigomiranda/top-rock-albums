@@ -26,11 +26,11 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    public List<Album> filter(List<Album> albums, Integer year, String artist) {
+    public List<Album> filter(List<Album> albums, String artist, Integer year) {
 
         return albums.stream()
-                .filter(album -> year == null || album.getYear() == year)
                 .filter(album -> artist == null || album.getArtist() == artist)
+                .filter(album -> year == null || album.getYear() == year)
                 .collect(Collectors.toList());
     }
 }

@@ -8,5 +8,5 @@ public interface AlbumService {
 
     List<Album> list();
 
-    List<Album> filter(List<Album> albums, Integer year, String artist);
+    List<Album> filter(List<Album> albums, String artist, Integer year);
 }
