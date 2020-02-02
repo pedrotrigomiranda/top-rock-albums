@@ -39,7 +39,7 @@ public class AlbumController {
 
         List<Album> albums = albumService.list();
 
-        for(Album album : albumService.filter(albums, year, artist)){
+        for(Album album : albumService.filter(albums, artist, year)){
             albumDtos.add(albumToAlbumDto.convert(album));
         };
 
