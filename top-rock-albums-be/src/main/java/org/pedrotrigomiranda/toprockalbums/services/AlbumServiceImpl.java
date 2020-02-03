@@ -29,8 +29,8 @@ public class AlbumServiceImpl implements AlbumService {
     public List<Album> filter(List<Album> albums, String artist, Integer year) {
 
         return albums.stream()
-                .filter(album -> artist == null || album.getArtist() == artist)
-                .filter(album -> year == null || album.getYear() == year)
+                .filter(album -> artist == null || album.getArtist().equals(artist))
+                .filter(album -> year == null || album.getYear().equals(year))
                 .collect(Collectors.toList());
     }
 }

@@ -53,4 +53,12 @@ public class Album implements Model {
     public void setArtist(String artist) {
         this.artist = artist;
     }
+
+    public String filterArtist(){
+        return artist;
+    }
+
+    public Integer filterYear(){
+        return year;
+    }
 }

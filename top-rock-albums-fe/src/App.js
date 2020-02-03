@@ -18,41 +18,33 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/albums?artists=&year=")
+    fetch("http://localhost:8080/albums?artists=&years=")
       .then(res => res.json())
       .then(data => {
         this.setState({
-          albums: data,
-          artists: data.artist,
-          years: data.year
+          albums: data
         });
-      })
+      });
   }
 
   selectArtist(event) {
-    this.setState({
-      selectedArtist: event.target.value
-    });
-    console.log(this.state.selectedArtist)
+    this.setState({ selectedArtist: event.target.value });
   }
 
   selectYear(event) {
-    this.setState({
-      selectedYear: event.target.value
-    });
-    console.log(this.state.selectedYear)
+    this.setState({ selectedYear: event.target.value });
   }
 
   handleFilter() {
     fetch(
-      `http://localhost:8080/albums?artists=${this.state.selectedArtist}&year=${this.state.selectedYear}`
+      `http://localhost:8080/albums?artists=${this.state.selectedArtist}&years=${this.state.selectedYear}`
     ).then(res =>
       res.json().then(data => {
         this.setState({
-          albums: data,
-         });
+          albums: data
+        });
       })
-      )
+    );
   }
 
   render() {
@@ -64,11 +56,11 @@ class App extends React.Component {
       </option>
     ));
 
-    let optionYears = albums.map((album, i) =>(
-      <option value ={album.year} key={i}>
+    let optionYears = albums.map((album, i) => (
+      <option value={album.year} key={i}>
         {album.year}
       </option>
-    ))
+    ));
 
     return (
       <div className="app">
@@ -76,11 +68,13 @@ class App extends React.Component {
           <select className="filter-artist" onChange={this.selectArtist}>
             <option value="">Select Artist</option>
             {optionArtists}
-          </select><br></br>
+          </select>
+          <br></br>
           <select className="filter-year" onChange={this.selectYear}>
             <option value="">Select Year</option>
             {optionYears}
-          </select><br></br>
+          </select>
+          <br></br>
           <button className="filter-button" onClick={this.handleFilter}>
             Filter
           </button>
