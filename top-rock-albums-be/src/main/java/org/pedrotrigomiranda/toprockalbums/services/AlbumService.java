@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface AlbumService {
 
-    List<Album> list();
+    List<Album> list(String artist, Integer year);
 
     List<Album> filter(List<Album> albums, String artist, Integer year);
 }

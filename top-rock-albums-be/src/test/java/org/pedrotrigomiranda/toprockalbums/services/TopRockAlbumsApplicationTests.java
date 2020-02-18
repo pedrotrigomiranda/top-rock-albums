@@ -11,7 +11,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TopRockAlbumsApplicationTests extends BaseTest {
 
 	@Test
-	void testFilter_withNoFilter_returnsSameList() {
+	void testFilter_withNullFilter_returnsSameList() {
 		List<Album> albums = new ArrayList<>();
 
 		for(int i = 0; i <= 5; i++){
@@ -24,6 +24,24 @@ class TopRockAlbumsApplicationTests extends BaseTest {
 		}
 
 		List<Album> filteredAlbums = albumService.filter(albums, null, null);
+
+		assertThat(filteredAlbums).isEqualTo(albums);
+	}
+
+	@Test
+	void testFilter_withEmptyString_returnsSameList() {
+		List<Album> albums = new ArrayList<>();
+
+		for(int i = 0; i <= 5; i++){
+			albums.add(Album.builder()
+					.id(i)
+					.album("Baleia Baleia Baleia")
+					.artist("Baleia Baleia Baleia")
+					.year(2019)
+					.build());
+		}
+
+		List<Album> filteredAlbums = albumService.filter(albums, "", null);
 
 		assertThat(filteredAlbums).isEqualTo(albums);
 	}

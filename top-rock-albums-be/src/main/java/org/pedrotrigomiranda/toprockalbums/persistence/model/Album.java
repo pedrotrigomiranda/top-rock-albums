@@ -1,5 +1,6 @@
 package org.pedrotrigomiranda.toprockalbums.persistence.model;
 
+import javax.validation.constraints.NotNull;
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -18,8 +19,10 @@ public class Album implements Model {
 
     private String album;
 
+    @NotNull
     private String artist;
 
+    @NotNull
     private Integer year;
 
     public Integer getId() {
