@@ -36,12 +36,9 @@ public class AlbumController {
 
 
         List<AlbumDto> albumDtos = new ArrayList<>();
-
-        List<Album> albums = albumService.list();
-
-        for(Album album : albumService.filter(albums, artist, year)){
+        for (Album album : albumService.list(artist, year)) {
             albumDtos.add(albumToAlbumDto.convert(album));
-        };
+        }
 
         return new ResponseEntity<>(albumDtos, HttpStatus.OK);
     }
