@@ -17,12 +17,6 @@ class App extends React.Component {
     this.selectYear = this.selectYear.bind(this);
   }
 
-  fetchData() {
-    fetch(
-      `http://localhost:8080/albums?artist=${this.state.selectedArtist}&year=${this.state.selectedYear}`
-    );
-  }
-
   componentDidMount() {
     fetch("http://localhost:8080/albums?artist=&year=")
       .then(res => res.json())

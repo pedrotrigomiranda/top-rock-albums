@@ -131,10 +131,10 @@ class TopRockAlbumsApplicationTests extends BaseTest {
 	}
 
 	@Test
-	void testFilter_withEmptyCustomerList_returnsEmptyList() {
-		List<Album> filteredCustomers = albumService.filter(new ArrayList<>(), "Nirvana", 1991);
+	void testFilter_withEmptyAlbumList_returnsEmptyList() {
+		List<Album> filteredAlbums = albumService.filter(new ArrayList<>(), "Nirvana", 1991);
 
-		assertThat(filteredCustomers).isEmpty();
+		assertThat(filteredAlbums).isEmpty();
 	}
 
 }

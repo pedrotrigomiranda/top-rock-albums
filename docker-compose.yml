@@ -2,7 +2,7 @@ version: '3.5'
 
 services:
   backend:
-    container_name: top-rock-abums-be
+    container_name: top-rock-albums-be
     image: top-rock-albums-be
     build: ./top-rock-albums-be/
     ports:
@@ -20,6 +20,17 @@ services:
     ports:
       - "5432:5432"
     restart: always
-    
+  frontend:
+    container_name: top-rock-albums-fe
+    image: top-rock-albums-fe 
+    build: ./top-rock-albums-fe/
+    volumes:
+      - './top-rock-albums-fe/:/app'
+      - '/app/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
 volumes:
     postgres:
