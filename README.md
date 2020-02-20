@@ -26,7 +26,6 @@ Frontend:
 cd top-rock-albums 
 
 docker-compose up
-
 ```
 (you may need to run `docker-compose` with `sudo`)
 
@@ -34,4 +33,8 @@ This will start the backend on `http://localhost:8080` and the frontend on `http
 
 ## Authors
 
-* **Pedro Trigo Miranda** (https://github.com/pedrotrigomiranda)
+* **Pedro Trigo Miranda** 
+
+https://github.com/pedrotrigomiranda
+
+https://www.linkedin.com/in/pedrotrigomiranda
