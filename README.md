@@ -35,6 +35,6 @@ This will start the backend on `http://localhost:8080` and the frontend on `http
 
 * **Pedro Trigo Miranda** 
 
-https://github.com/pedrotrigomiranda
+    https://github.com/pedrotrigomiranda
 
-https://www.linkedin.com/in/pedrotrigomiranda
+    https://www.linkedin.com/in/pedrotrigomiranda
