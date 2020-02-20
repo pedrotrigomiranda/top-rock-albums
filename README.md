@@ -23,9 +23,10 @@ Frontend:
 ### Getting the project running locally
 
 ```
-cd phone-numbers-validator
+cd top-rock-albums 
 
 docker-compose up
+
 ```
 (you may need to run `docker-compose` with `sudo`)
 
