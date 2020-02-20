@@ -10,10 +10,10 @@ const Albums = ({ albums }) => {
           {albums.map(function(album, i) {
             return (
               <tr className="table-row" key={i}>
-                <td>{album.id}</td>
-                <td>{album.album}</td>
-                <td>{album.artist}</td>
-                <td>{album.year}</td>
+                <td className="table-column">{album.id}</td>
+                <td className="table-column">{album.album}</td>
+                <td className="table-column">{album.artist}</td>
+                <td className="table-column">{album.year}</td>
               </tr>
             );
           })}

@@ -17,14 +17,38 @@ class App extends React.Component {
     this.selectYear = this.selectYear.bind(this);
   }
 
+  fetchData() {
+    fetch(
+      `http://localhost:8080/albums?artist=${this.state.selectedArtist}&year=${this.state.selectedYear}`
+    );
+  }
+
   componentDidMount() {
-    fetch("http://localhost:8080/albums?artists=&years=")
+    fetch("http://localhost:8080/albums?artist=&year=")
       .then(res => res.json())
       .then(data => {
         this.setState({
           albums: data
         });
+      })
+
+      .then(() => {
+        for (let i = 0; i < this.state.albums.length; i++) {
+          this.state.artists.push(this.state.albums[i].artist);
+          this.state.years.push(this.state.albums[i].year);
+        }
       });
+
+      
+    fetch(
+      `http://localhost:8080/albums?artist=${this.state.selectedArtist}&year=${this.state.selectedYear}`
+    ).then(res =>
+      res.json().then(data => {
+        this.setState({
+          albums: data
+        });
+      })
+    );
   }
 
   selectArtist(event) {
@@ -37,7 +61,7 @@ class App extends React.Component {
 
   handleFilter() {
     fetch(
-      `http://localhost:8080/albums?artists=${this.state.selectedArtist}&years=${this.state.selectedYear}`
+      `http://localhost:8080/albums?artist=${this.state.selectedArtist}&year=${this.state.selectedYear}`
     ).then(res =>
       res.json().then(data => {
         this.setState({
@@ -48,17 +72,18 @@ class App extends React.Component {
   }
 
   render() {
-    let albums = this.state.albums;
+    const artists = [...new Set(this.state.artists)].sort();
+    const years = [...new Set(this.state.years)].sort();
 
-    let optionArtists = albums.map((album, i) => (
-      <option value={album.artist} key={i}>
-        {album.artist}
+    const optionArtists = artists.map((artist, i) => (
+      <option value={artist} key={i}>
+        {artist}
       </option>
     ));
 
-    let optionYears = albums.map((album, i) => (
-      <option value={album.year} key={i}>
-        {album.year}
+    const optionYears = years.map((year, i) => (
+      <option value={year} key={i}>
+        {year}
       </option>
     ));
 
@@ -74,6 +99,7 @@ class App extends React.Component {
             <option value="">Select Year</option>
             {optionYears}
           </select>
+          <br></br>
           <br></br>
           <button className="filter-button" onClick={this.handleFilter}>
             Filter
