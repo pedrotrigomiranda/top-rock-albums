@@ -23,6 +23,8 @@ Frontend:
 ### Getting the project running locally
 
 ```
+git clone https://github.com/pedrotrigomiranda/top-rock-albums.git
+
 cd top-rock-albums 
 
 docker-compose up
